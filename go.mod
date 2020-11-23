@@ -1,4 +1,4 @@
-module github.com/j2gg0s/otsql
+module github.com/cspinetta/otsql
 
 go 1.14
 
