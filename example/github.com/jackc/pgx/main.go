@@ -4,16 +4,14 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"time"
-
-	"go.opentelemetry.io/otel/api/global"
-	"go.opentelemetry.io/otel/api/trace"
-
 	"github.com/j2gg0s/otsql"
 	"github.com/j2gg0s/otsql/example"
 	"github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/stdlib"
 	_ "github.com/jackc/pgx/v4/stdlib"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/trace"
+	"time"
 )
 
 var pgDSN = "postgres://otsql_user:otsql_password@localhost:5432/otsql_db?sslmode=disable"
@@ -54,7 +52,7 @@ func main() {
 	}()
 
 	{
-		ctx, span := global.TracerProvider().Tracer("github.com/j2gg0s/otsql").Start(
+		ctx, span := otel.Tracer("github.com/j2gg0s/otsql").Start(
 			context.Background(),
 			"demoTrace",
 			trace.WithNewRoot())

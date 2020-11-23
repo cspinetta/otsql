@@ -2,7 +2,6 @@ package otsql
 
 import (
 	"context"
-
 	"go.opentelemetry.io/otel/label"
 )
 

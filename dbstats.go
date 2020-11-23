@@ -4,10 +4,9 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"go.opentelemetry.io/otel/metric"
 	"sync"
 	"time"
-
-	"go.opentelemetry.io/otel/api/metric"
 )
 
 var dbs = map[*sql.DB]string{}
